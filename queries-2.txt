@@ -4,3 +4,11 @@ SELECT name FROM rooms WHERE capacity >= 100;
 2.
 SELECT name from courses WHERE start_time=(select MIN(start_time) from courses);
 
+4.
+Select courses.name
+FROM courses
+INNER JOIN enrolled ON enrolled.course_crn = courses.crn
+INNER JOIN majorsln ON majorsln.students_id = enrolled.students_id
+INNER JOIN departments ON departments.id = majorsln.departments_id
+WHERE departments.name = "BIF"
+
