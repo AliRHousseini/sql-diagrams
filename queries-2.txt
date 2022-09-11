@@ -22,7 +22,7 @@ WHERE enrolled.course_name = "";
 SELECT COUNT(departments.name)
 FROM departments
 INNER JOIN majorsln ON majorsln.department_id = departments.id
-INNER JOIN enrolled ON enrolled.students_id = majors.students_id
+INNER JOIN enrolled ON enrolled.students_id = majorsln.students_id
 INNER JOIN courses ON courses.crn = enrolled.courses_crn
 WHERE courses.name = "CSC275" AND departments.name = "CS";
 
@@ -30,6 +30,12 @@ WHERE courses.name = "CSC275" AND departments.name = "CS";
 SELECT COUNT(departments.name)
 FROM departments
 INNER JOIN majorsln ON majorsln.department_id = departments.id
-INNER JOIN enrolled ON enrolled.students_id = majors.students_id
+INNER JOIN enrolled ON enrolled.students_id = majorsln.students_id
 INNER JOIN courses ON courses.crn = enrolled.courses_crn
 WHERE courses.name IS NOT NULL AND departments.name = "CS";
+
+8. 
+SELECT students.name, COUNT(departments.name)
+FROM students
+INNER JOIN enrolled ON enrolled.students_id = majors.students_id
+INNER JOIN departments	ON departments.id = majorsln.departments_id;
