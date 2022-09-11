@@ -24,5 +24,12 @@ FROM departments
 INNER JOIN majorsln ON majorsln.department_id = departments.id
 INNER JOIN enrolled ON enrolled.students_id = majors.students_id
 INNER JOIN courses ON courses.crn = enrolled.courses_crn
-WHERE courses.name = "CSC275" AND departments.name = "CS"
+WHERE courses.name = "CSC275" AND departments.name = "CS";
 
+7.
+SELECT COUNT(departments.name)
+FROM departments
+INNER JOIN majorsln ON majorsln.department_id = departments.id
+INNER JOIN enrolled ON enrolled.students_id = majors.students_id
+INNER JOIN courses ON courses.crn = enrolled.courses_crn
+WHERE courses.name IS NOT NULL AND departments.name = "CS";
