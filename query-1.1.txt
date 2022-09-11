@@ -1,1 +1,6 @@
-select name,earning_rank from movies where earning_rank=(select MIN(earning_rank) from movies);
+SELECT movies.name,movies.earning_rank
+FROM movies
+INNER JOIN oscars
+ON movies.id=oscars.movies_id
+WHERE movies.earning_rank=(select MIN(movies.earning_rank) from movies)
+AND oscars.type="best_picture";
