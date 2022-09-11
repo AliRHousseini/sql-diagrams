@@ -39,3 +39,10 @@ SELECT students.name, COUNT(departments.name)
 FROM students
 INNER JOIN enrolled ON enrolled.students_id = majors.students_id
 INNER JOIN departments	ON departments.id = majorsln.departments_id;
+
+9. 
+SELECT departments.name, COUNT(students.name)
+FROM students
+INNER JOIN enrolled ON enrolled.students_id = majors.students_id
+INNER JOIN departments	ON departments.id = majorsln.departments_id
+Where COUNT(students.name)>1;
