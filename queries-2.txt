@@ -1,3 +1,6 @@
 1.
 SELECT name FROM rooms WHERE capacity >= 100;
 
+2.
+SELECT name from courses WHERE start_time=(select MIN(start_time) from courses);
+
