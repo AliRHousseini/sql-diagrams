@@ -1,0 +1,1 @@
+select name,earning_rank from movies where earning_rank=(select MIN(earning_rank) from movies);
